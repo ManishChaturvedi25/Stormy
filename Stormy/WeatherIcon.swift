@@ -3,7 +3,7 @@
 //  Stormy
 //
 //  Created by Manish Chaturvedi on 4/21/17.
-//  Copyright © 2017 Treehouse. All rights reserved.
+//  Copyright © 2017 Apple. All rights reserved.
 //
 
 import Foundation
