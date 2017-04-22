@@ -28,11 +28,21 @@ class ViewController: UIViewController {
         let base = URL(string: "https://api.darksky.net/forecast/\(darkSkyAPIkey)/")
       //  let location =  // Provide your location here
         
-        let foreCastUrl = URL(string:"37.8267,-122.4233", relativeTo:base)
+        guard let foreCastUrl = URL(string:"37.8267,-122.4233", relativeTo:base) else {
+            return
+        }
         
-        let weatherData = try! Data(contentsOf: foreCastUrl!)
+        let configuration = URLSessionConfiguration.default
+        let urlSession = URLSession(configuration: configuration)
         
-        print(weatherData as NSData)
+        let request  = URLRequest(url:foreCastUrl)
+        
+        let dataTask = urlSession.dataTask(with: request) { data, response, error in
+            print(data)
+            }
+        
+        dataTask.resume()
+    
         
     }
     
