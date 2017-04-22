@@ -17,6 +17,8 @@
 		97CF38761EAA8DCD0096182F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97CF38751EAA8DCD0096182F /* Main.storyboard */; };
 		97CF38781EAB34600096182F /* JSONDownLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF38771EAB34600096182F /* JSONDownLoader.swift */; };
 		97CF387A1EABA1440096182F /* DarkSkyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF38791EABA1440096182F /* DarkSkyError.swift */; };
+		97CF387D1EABBFD70096182F /* DarkSkyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF387B1EABBFD70096182F /* DarkSkyAPIClient.swift */; };
+		97CF387E1EABBFD70096182F /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF387C1EABBFD70096182F /* Coordinate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		97CF38751EAA8DCD0096182F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		97CF38771EAB34600096182F /* JSONDownLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDownLoader.swift; sourceTree = "<group>"; };
 		97CF38791EABA1440096182F /* DarkSkyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkSkyError.swift; sourceTree = "<group>"; };
+		97CF387B1EABBFD70096182F /* DarkSkyAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkSkyAPIClient.swift; sourceTree = "<group>"; };
+		97CF387C1EABBFD70096182F /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				97CF38691EAA8D7D0096182F /* Info.plist */,
 				97CF38771EAB34600096182F /* JSONDownLoader.swift */,
 				97CF38791EABA1440096182F /* DarkSkyError.swift */,
+				97CF387B1EABBFD70096182F /* DarkSkyAPIClient.swift */,
+				97CF387C1EABBFD70096182F /* Coordinate.swift */,
 			);
 			path = Stormy;
 			sourceTree = "<group>";
@@ -154,7 +160,9 @@
 				97CF387A1EABA1440096182F /* DarkSkyError.swift in Sources */,
 				97CF38601EAA8D7D0096182F /* ViewController.swift in Sources */,
 				97CF38731EAA8D990096182F /* WeatherIcon.swift in Sources */,
+				97CF387D1EABBFD70096182F /* DarkSkyAPIClient.swift in Sources */,
 				97CF38741EAA8D990096182F /* CurrentWeatherViewModel.swift in Sources */,
+				97CF387E1EABBFD70096182F /* Coordinate.swift in Sources */,
 				97CF38721EAA8D990096182F /* CurrentWeather.swift in Sources */,
 				97CF38781EAB34600096182F /* JSONDownLoader.swift in Sources */,
 				97CF385E1EAA8D7D0096182F /* AppDelegate.swift in Sources */,

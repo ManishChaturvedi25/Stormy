@@ -2,7 +2,7 @@
 //  JSONDownLoader.swift
 //  Stormy
 //
-//  Created by ctsuser1 on 4/21/17.
+//  Created by Manish Chaturvedi on 4/21/17.
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
@@ -27,10 +27,35 @@ class JSONDownLoader {
 
        let dataTask =  urlSession.dataTask(with: request) { data, response, error in
         
+        
             guard let httpResponse = response as? HTTPURLResponse else {
-                completion(nil,.RequestFaliure)
+                completion(nil,.requestFaliure)
                 return
             }
+        
+        if httpResponse.statusCode == 200 {
+            if let data = data {
+                
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
+                    completion(json, nil)
+                    
+                } catch {
+                    completion( nil, .jsonConversionFaliure)
+                }
+                
+            } else {
+                
+                completion(nil, .invalidData)
+            }
+            
+        }
+        else {
+            completion(nil, .responseUnSucessful)
+        }
+        
+        
+        
         }
         return dataTask
     }

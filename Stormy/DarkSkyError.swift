@@ -2,7 +2,7 @@
 //  DarkSkyError.swift
 //  Stormy
 //
-//  Created by ctsuser1 on 4/22/17.
+//  Created by Manish Chaturvedi on 4/22/17.
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
@@ -10,5 +10,10 @@ import Foundation
 
 enum DarkSkyError : Error{
     
-    case RequestFaliure
+    case requestFaliure
+    case responseUnSucessful
+    case invalidData
+    case jsonConversionFaliure
+    case invalidUrl
+    case jsonParsingFailure
 }

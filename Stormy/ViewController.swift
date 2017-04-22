@@ -18,32 +18,46 @@ class ViewController: UIViewController {
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    fileprivate let darkSkyAPIkey = "1c9143f651619d0ce2902acce76c65b4"
+    let client = DarkSkyAPIClient()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getCurrentWeather()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let base = URL(string: "https://api.darksky.net/forecast/\(darkSkyAPIkey)/")
-      //  let location =  // Provide your location here
-        
-        guard let foreCastUrl = URL(string:"37.8267,-122.4233", relativeTo:base) else {
-            return
-        }
-        
-        let configuration = URLSessionConfiguration.default
-        let urlSession = URLSession(configuration: configuration)
-        
-        let request  = URLRequest(url:foreCastUrl)
-        
-        let dataTask = urlSession.dataTask(with: request) { data, response, error in
-            print(data)
-            }
-        
-        dataTask.resume()
+    }
+    func displayWeather(using viewModel: CurrentWeatherViewModel) {
+        currentTemperatureLabel.text = viewModel.temperature
+        currentHumidityLabel.text = viewModel.humidity
+        currentPrecipitationLabel.text = viewModel.precipitationProbablity
+        currentSummaryLabel.text = viewModel.summary
+        currentWeatherIcon.image = viewModel.icon
+    }
     
+    @IBAction func getCurrentWeather() {
         
+        toggleRefreshAnimation(on: true)
+        
+        let coordinate = Coordinate(latitude: 37.8267, longitude: -122.4233)
+        
+        client.getCurrentWeather(at: coordinate) { [unowned self] currentWeather, error in
+            if let currentWeather = currentWeather {
+                let viewModel = CurrentWeatherViewModel(model: currentWeather)
+                self.displayWeather(using: viewModel)
+                self.toggleRefreshAnimation(on: false)
+            }
+        }
+    }
+    
+    func toggleRefreshAnimation(on: Bool) {
+        refreshButton.isHidden = on
+        
+        if on {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
     }
     
     override func didReceiveMemoryWarning() {
